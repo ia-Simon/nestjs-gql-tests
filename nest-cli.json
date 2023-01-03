@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "webpack": true
+  },
+  "projects": {
+    "mock-db": {
+      "type": "library",
+      "root": "libs/mock-db",
+      "entryFile": "index",
+      "sourceRoot": "libs/mock-db/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/mock-db/tsconfig.lib.json"
+      }
+    },
+    "graphql-utils": {
+      "type": "library",
+      "root": "libs/graphql-utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/graphql-utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/graphql-utils/tsconfig.lib.json"
+      }
+    }
+  }
+}

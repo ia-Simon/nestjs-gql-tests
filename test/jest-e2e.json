@@ -1,0 +1,19 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@app/mock-db/(.*)": "<rootDir>/../libs/mock-db/src/$1",
+    "@app/mock-db": "<rootDir>/../libs/mock-db/src",
+    "@app/graphql-utils/(.*)": "<rootDir>/../libs/graphql-utils/src/$1",
+    "@app/graphql-utils": "<rootDir>/../libs/graphql-utils/src"
+  }
+}

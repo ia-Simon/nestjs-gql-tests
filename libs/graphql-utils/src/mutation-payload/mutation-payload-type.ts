@@ -3,9 +3,9 @@ import { Field, ObjectType } from "@nestjs/graphql";
 import { PayloadError } from "./payload-error";
 
 
-export function MutationPayload<T>(ResourceType: Type<T>) {
+export function MutationPayloadType<T>(ResourceType: Type<T>) {
   @ObjectType({ isAbstract: true })
-  abstract class MutationPayload {
+  abstract class MutationPayloadType {
     @Field()
     status: boolean;
   
@@ -26,5 +26,5 @@ export function MutationPayload<T>(ResourceType: Type<T>) {
     }
   }
 
-  return MutationPayload;
+  return MutationPayloadType;
 }

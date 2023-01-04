@@ -3,9 +3,9 @@ import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { PageControlInput } from "./page-control-input";
 
 
-export function Paginate<T>(ResourceType: Type<T>) {
+export function PaginateType<T>(ResourceType: Type<T>) {
   @ObjectType({ isAbstract: true })
-  abstract class Paginate {
+  abstract class PaginateType {
     @Field(type => Int)
     page: number;
 
@@ -29,5 +29,5 @@ export function Paginate<T>(ResourceType: Type<T>) {
     }
   }
 
-  return Paginate;
+  return PaginateType;
 }

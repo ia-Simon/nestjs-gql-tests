@@ -3,6 +3,10 @@ import { Field, ID, ObjectType } from "@nestjs/graphql";
 
 @ObjectType()
 export class User {
+  constructor(data: UserEntity) {
+    Object.assign(this, data);
+  }
+
   @Field(type => ID)
   id: number;
 
@@ -11,12 +15,4 @@ export class User {
   
   @Field({ nullable: true})
   name?: string;
-
-  static from_db(data: UserEntity): User {
-    return {
-      id: data.id,
-      email: data.email,
-      name: data.name,
-    };
-  }
 }

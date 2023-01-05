@@ -11,7 +11,7 @@ export class UserService {
     const user = MockDB.findById("user", id);
     
     if (user) {
-      return User.from_db(user);
+      return new User(user);
     }
   }
   
@@ -21,7 +21,7 @@ export class UserService {
     const users = MockDB.list("user");
     
     pagination.setMetrics(pageControl, users.length);
-    pagination.setItems(users.map(user => User.from_db(user)));
+    pagination.setItems(users.map(user => new User(user)));
 
     return pagination;
   }
@@ -32,7 +32,7 @@ export class UserService {
     const user = MockDB.create('user', input);
 
     if (user) {
-      payload.setResource(User.from_db(user));
+      payload.setResource(new User(user));
     } else {
       payload.addError({ code: 'U0001', message: 'Failed to create user.' })
     }
@@ -46,7 +46,7 @@ export class UserService {
     const user = MockDB.update('user', id, input);
 
     if (user) {
-      payload.setResource(User.from_db(user));
+      payload.setResource(new User(user));
     } else {
       payload.addError({ code: 'U0001', message: 'Failed to update user.' })
     }
@@ -60,7 +60,7 @@ export class UserService {
     const user = MockDB.delete('user', id);
 
     if (user) {
-      payload.setResource(User.from_db(user));
+      payload.setResource(new User(user));
     } else {
       payload.addError({ code: 'U0001', message: 'Failed to delete user.' })
     }
